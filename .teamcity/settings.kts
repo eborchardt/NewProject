@@ -33,5 +33,5 @@ object HttpsGithubComJetBrainsTeamcityDocumentation : GitVcsRoot({
     url = "https://github.com/JetBrains/teamcity-documentation"
     branch = "refs/heads/2022.10"
     checkoutSubmodules = GitVcsRoot.CheckoutSubmodules.IGNORE
-    checkoutPolicy = GitVCSRoot.AgentCheckoutPolicy.SHALLOW_CLONE
+    checkoutPolicy = AgentCheckoutPolicy.SHALLOW_CLONE
 })
