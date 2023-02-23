@@ -35,6 +35,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    params {
+        password("superSecret", "credentialsJSON:8d9a48f8-57f0-477c-9426-c2cd8288582d")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
