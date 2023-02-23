@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.buildSteps.smbUpload
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -47,11 +46,11 @@ object Build : BuildType({
     }
 
     steps {
-        script {
-            scriptContent = "echo %superSecret% > textfile.txt"
-            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
-            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
-            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        smbUpload {
+            targetUrl = """\\192.168.0.63\example1"""
+            username = "example1"
+            password = "credentialsJSON:84729875-c892-4417-972c-c7a245083ff2"
+            sourcePath = "."
         }
         smbUpload {
             targetUrl = """\\localhost\folder"""
