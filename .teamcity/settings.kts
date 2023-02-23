@@ -46,6 +46,7 @@ object Build : BuildType({
 
     steps {
         smbUpload {
+            enabled = false
             targetUrl = """\\localhost\folder"""
             username = "testuser"
             password = "credentialsJSON:19701ee5-3223-4bff-8ee1-b947c237365f"
