@@ -50,7 +50,7 @@ object Build : BuildType({
             targetUrl = """\\192.168.0.63\example1"""
             username = "example1"
             password = "credentialsJSON:84729875-c892-4417-972c-c7a245083ff2"
-            sourcePath = "."
+            sourcePath = "*.txt"
         }
     }
 
