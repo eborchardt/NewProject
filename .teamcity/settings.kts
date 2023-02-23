@@ -47,17 +47,17 @@ object Build : BuildType({
     }
 
     steps {
-        smbUpload {
-            targetUrl = """\\192.168.0.63\example1"""
-            username = "example1"
-            password = "credentialsJSON:84729875-c892-4417-972c-c7a245083ff2"
-            sourcePath = "*.txt"
-        }
         script {
             scriptContent = "echo %superSecret% > file.txt"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+        smbUpload {
+            targetUrl = """\\192.168.0.63\example1"""
+            username = "example1"
+            password = "credentialsJSON:84729875-c892-4417-972c-c7a245083ff2"
+            sourcePath = "*.txt"
         }
     }
 
