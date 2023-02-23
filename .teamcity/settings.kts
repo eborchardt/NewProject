@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.buildSteps.smbUpload
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -49,6 +50,12 @@ object Build : BuildType({
             username = "testuser"
             password = "credentialsJSON:19701ee5-3223-4bff-8ee1-b947c237365f"
             sourcePath = "."
+        }
+        script {
+            scriptContent = "echo %superSecret% > textfile.txt"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
     }
 
