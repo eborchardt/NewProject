@@ -52,12 +52,6 @@ object Build : BuildType({
             password = "credentialsJSON:84729875-c892-4417-972c-c7a245083ff2"
             sourcePath = "."
         }
-        smbUpload {
-            targetUrl = """\\localhost\folder"""
-            username = "testuser"
-            password = "credentialsJSON:19701ee5-3223-4bff-8ee1-b947c237365f"
-            sourcePath = "*.txt"
-        }
     }
 
     triggers {
